@@ -36,3 +36,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Personnal custom command
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
