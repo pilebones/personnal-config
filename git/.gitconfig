@@ -1,6 +1,6 @@
 [user]
-	email = mfranc@clever-age.com
-	name = Mickael
+	email = prenom.nom@test.com
+	name = Prenom Nom
 [core]
         editor = vim
 [color]
