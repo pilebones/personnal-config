@@ -1,0 +1,139 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg"
+      ],
+      "filetypes": [
+        "go"
+      ]
+    },
+    "python": {
+      "args": [
+        "-mpyls",
+        "-vv",
+        "--log-file",
+        "/tmp/lsp_python.log"
+      ],
+      "command": "python3",
+      "filetypes": [
+        "python"
+      ],
+      "settings": {
+        "pyls": {
+          "commandPath": "",
+          "configurationSources": [
+            "pycodestyle"
+          ],
+          "enable": true,
+          "plugins": {
+            "jedi_completion": {
+              "enabled": false
+            },
+            "jedi_hover": {
+              "enabled": true
+            },
+            "jedi_references": {
+              "enabled": true
+            },
+            "jedi_signature_help": {
+              "enabled": true
+            },
+            "jedi_symbols": {
+              "all_scopes": true,
+              "enabled": true
+            },
+            "mccabe": {
+              "enabled": true,
+              "threshold": 15
+            },
+            "preload": {
+              "enabled": true
+            },
+            "pycodestyle": {
+              "enabled": true
+            },
+            "pydocstyle": {
+              "enabled": false,
+              "match": "(?!test_).*\\.py",
+              "matchDir": "[^\\.].*"
+            },
+            "pyflakes": {
+              "enabled": true
+            },
+            "rope_completion": {
+              "enabled": true
+            },
+            "yapf": {
+              "enabled": true
+            }
+          },
+          "trace": {
+            "server": "verbose"
+          }
+        }
+      },
+      "trace.server": "verbose"
+    },
+    "bash": {
+      "command": "/home/mfranc/.yarn/bin/bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    },
+    "dls": {
+      "command": "/home/mfranc/.yarn/bin/diagnostic-languageserver",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "initializationOptions": {
+        "linters": {
+          "shellcheck": {
+            "command": "shellcheck",
+            "debounce": 100,
+            "args": [
+              "--format=gcc",
+              "-"
+            ],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "sourceName": "shellcheck",
+            "formatLines": 1,
+            "formatPattern": [
+              "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+              {
+                "line": 1,
+                "column": 2,
+                "message": 4,
+                "security": 3
+              }
+            ],
+            "securities": {
+              "error": "error",
+              "warning": "warning",
+              "note": "info"
+            }
+          }
+        },
+        "filetypes": {
+          "sh": "shellcheck"
+        },
+        "formatters": {},
+        "formatFiletypes": {}
+      }
+    }
+  }
+}
